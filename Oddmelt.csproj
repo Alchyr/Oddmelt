@@ -1,0 +1,70 @@
+﻿<Project Sdk="Godot.NET.Sdk/4.5.1">
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <PublishDir>$(MSBuildProjectDirectory)\Publish</PublishDir>
+    <GodotPath>Z:\Projects\sts2\megadot\MegaDot_v4.5.1-stable_mono_win64.exe</GodotPath>
+    <SteamLibraryPath>C:\Program Files (x86)\Steam\steamapps</SteamLibraryPath>
+    <Sts2Path>$(SteamLibraryPath)\common\Slay the Spire 2</Sts2Path>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>$(Sts2Path)\data_sts2_windows_x86_64\0Harmony.dll</HintPath>
+    </Reference>
+    <Reference Include="sts2">
+      <HintPath>$(Sts2Path)\data_sts2_windows_x86_64\sts2.dll</HintPath>
+    </Reference>
+    <Reference Include="BaseLib">
+      <HintPath>$(Sts2Path)\mods\BaseLib.dll</HintPath>
+    </Reference>
+
+
+    <Analyzer Include="Z:\Projects\StS2ModAnalyzers\ModAnalyzers\ModAnalyzers\bin\Debug\netstandard2.0\Sts2ModAnalyzers.dll" />
+    <AdditionalFiles Include="$(MSBuildProjectName)\localization\**\*.json"/>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.4.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="$(MSBuildProjectName)\**" />
+    <Compile Remove="materials\**" />
+    <Compile Remove="shaders\**" />
+    <Compile Remove="images\**" />
+    <EmbeddedResource Remove="$(MSBuildProjectName)\**" />
+    <EmbeddedResource Remove="materials\**" />
+    <EmbeddedResource Remove="shaders\**" />
+    <EmbeddedResource Remove="images\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include=".gitignore" />
+    <Content Include="mod_manifest.json" />
+    <Content Include="images\**" />
+    <Content Include="$(MSBuildProjectName)\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="images\oddmelt\powers\big\" />
+    <Folder Include="images\packed\" />
+  </ItemGroup>
+
+  <Target Name="CopyToModsFolderOnBuild" AfterTargets="PostBuildEvent"><!--;GodotPublish"-->
+    <Message Text="Copying .dll to mods folder." Importance="high" />
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(Sts2Path)\mods\" />
+  </Target>
+  <Target Name="GodotPublish" AfterTargets="Publish">
+    <Message Text="Exporting Godot .pck..." Importance="high" />
+    <Exec Command="$(GodotPath) --headless --export-pack &quot;Windows Desktop&quot; &quot;$(PublishDir)\$(MSBuildProjectName).pck&quot;" ContinueOnError="WarnAndContinue" />
+  </Target>
+  <Target Name="CopyToModsFolder" AfterTargets="Publish,GodotPublish">
+    <Message Text="Copying .pck and .dll to mods folder." Importance="high" />
+    <Copy SourceFiles="$(PublishDir)\$(MSBuildProjectName).pck" DestinationFolder="$(Sts2Path)\mods\" />
+    <Copy SourceFiles="$(PublishDir)\$(MSBuildProjectName).dll" DestinationFolder="$(Sts2Path)\mods\" />
+  </Target>
+</Project>

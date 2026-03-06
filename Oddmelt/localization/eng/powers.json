@@ -1,0 +1,5 @@
+{
+  "ODDMELT-BIND.title": "Bind",
+  "ODDMELT-BIND.description": "Creature's next Attack deals reduced damage.",
+  "ODDMELT-BIND.smartDescription": "{OnPlayer:Your|[gold]{OwnerName}'s[/gold]} next Attack deals [blue]{Amount}[/blue] less damage."
+}

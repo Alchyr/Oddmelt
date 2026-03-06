@@ -1,0 +1,8 @@
+{
+  "ODDMELT-CORRODED_RIBBON.title": "Corroded Ribbon",
+  "ODDMELT-CORRODED_RIBBON.flavor": "A miraculous survivor of the disposal process, the last remaining keepsake of a life never lived.",
+  "ODDMELT-CORRODED_RIBBON.description": "Attacks deal [blue]{ExtraDamage}[/blue] additional damage to debuffed enemies.",
+  "ODDMELT-IMPURE_COIL.title": "Impure Coil",
+  "ODDMELT-IMPURE_COIL.flavor": "The vile substance, now in harmony with its container.",
+  "ODDMELT-IMPURE_COIL.description": "Attacks deal [blue]{ExtraDamage}[/blue] additional damage for each debuff enemies have."
+}

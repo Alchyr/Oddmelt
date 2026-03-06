@@ -1,0 +1,10 @@
+{
+  "ODDMELT-WOVEN.title": "Woven",
+  "ODDMELT-WOVEN.description": "This card is not reshuffled from your discard pile into your draw pile.",
+  "ODDMELT-PERSIST.title": "Persist",
+  "ODDMELT-PERSIST.description": "This card returns to your hand when played a certain number of times each turn.",
+  "ODDMELT-STITCH.title": "Stitch",
+  "ODDMELT-STITCH.description": "When played, attaches to a random card in your hand. Whenever you play that card, this card is also played.",
+  "ODDMELT-STITCHED.title": "Stitched",
+  "ODDMELT-STITCHED.description": "Attached to another card. Whenever you play that card, this card is also played."
+}
