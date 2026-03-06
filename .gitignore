@@ -5,6 +5,7 @@ bin/
 .idea/
 .vs/
 publish/
+Properties/
 .editorconfig
 *.import
 *.uid
