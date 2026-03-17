@@ -1,0 +1,11 @@
+{
+  "NEOW.talk.ODDMELT-ODDMELT.0-0.ancient": "[sine]...you.. can be.. ...useful...\n ...climb..[/sine]",
+  "NEOW.talk.ODDMELT-ODDMELT.0-0.ancient.sfx": "event:/sfx/npcs/neow/neow_welcome",
+  "NEOW.talk.ODDMELT-ODDMELT.1-0.ancient": "[sine]..your... failures..\n ...do not... matter..[/sine]",
+  "NEOW.talk.ODDMELT-ODDMELT.1-0.ancient.sfx": "event:/sfx/npcs/neow/neow_sleepy",
+  "VAKUU.talk.ODDMELT-ODDMELT.0-0r.ancient": "go die loser",
+  "THE_ARCHITECT.talk.ODDMELT-ODDMELT.0-0r.char": "I will... be...",
+  "THE_ARCHITECT.talk.ODDMELT-ODDMELT.0-0r.next": "Continue",
+  "THE_ARCHITECT.talk.ODDMELT-ODDMELT.0-1r.ancient": "As useless as ever?",
+  "THE_ARCHITECT.talk.ODDMELT-ODDMELT.0-attack": "BOTH"
+}

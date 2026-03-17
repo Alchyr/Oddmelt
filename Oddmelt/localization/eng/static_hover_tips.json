@@ -1,6 +1,4 @@
 {
-  "ODDMELT-PERSIST.title": "Persist",
-  "ODDMELT-PERSIST.description": "This card returns to your hand the first {Persist:cond:>1?[blue]{Persist}[/blue] |}{Persist:plural:time|times} it is played each turn.",
   "ODDMELT-DISSOLVE.title": "Dissolve",
   "ODDMELT-DISSOLVE.description": "Spends [blue]{Dissolve}[/blue] [gold]Block[/gold] to activate this effect."
 }

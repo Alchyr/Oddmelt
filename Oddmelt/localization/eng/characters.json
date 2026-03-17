@@ -1,13 +1,16 @@
 {
   "ODDMELT-ODDMELT.title": "Oddmelt",
-  "ODDMELT-ODDMELT.titleObject": "???",
-  "ODDMELT-ODDMELT.description": "A doll whose experimental disposal went poorly.\nBinds all around it with impure strings.",
-  "ODDMELT-ODDMELT.description1": "A puppet servant, now one with its disposal method.\nBinds all around it with impure strings.",
+  "ODDMELT-ODDMELT.titleObject": "Oddmelt",
+  "ODDMELT-ODDMELT.description": "An accidental creation, desperate to prove itself useful.\nIt cannot overcome its twisted instincts.",
   "ODDMELT-ODDMELT.pronounObject": "it",
   "ODDMELT-ODDMELT.possessiveAdjective": "its",
   "ODDMELT-ODDMELT.pronounPossessive": "its",
   "ODDMELT-ODDMELT.pronounSubject": "it",
-  "ODDMELT-ODDMELT.cardsModifierTitle": "CardsModifierTitle",
-  "ODDMELT-ODDMELT.cardsModifierDescription": "CardsModifierDescription",
-  "ODDMELT-ODDMELT.eventDeathPrevention": "EventDeathPrevention"
+  "ODDMELT-ODDMELT.cardsModifierTitle": "Oddmelt Cards",
+  "ODDMELT-ODDMELT.cardsModifierDescription": "Oddmelt cards will now appear in rewards and shops.",
+  "ODDMELT-ODDMELT.aromaPrinciple": "Lore",
+  "ODDMELT-ODDMELT.eventDeathPrevention": "Not done... yet?",
+  "ODDMELT-ODDMELT.banter.alive.endTurnPing": "Getting... hungry.",
+  "ODDMELT-ODDMELT.banter.dead.endTurnPing": "...",
+  "ODDMELT-ODDMELT.goldMonologue": "Shiny..."
 }
