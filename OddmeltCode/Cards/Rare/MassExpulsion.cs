@@ -11,7 +11,12 @@ public class MassExpulsion() : OddmeltCard(1, CardType.Attack, CardRarity.Rare, 
     protected override IEnumerable<DynamicVar> CanonicalVars => [
         new DamageVar(8, ValueProp.Move),
         new DissolveVar(8),
-        new DynamicVar("DissolveCount", 2)
+        new DynamicVar("DissolveCount", 2),
+        new CalculationBaseVar(1),
+        new CalculationExtraVar(1),
+        new CalculatedVar("Hits")
+            .WithMultiplier((card, target) => (decimal) Math.Pow(2, (double) Math.Min(Math.Floor(card.Owner.Creature.Block / card.DynamicVars[DissolveVar.Key].BaseValue),
+                card.DynamicVars["DissolveCount"].BaseValue)) - 1)
     ];
     protected override bool ShouldGlowGoldInternal => CanDissolve;
 

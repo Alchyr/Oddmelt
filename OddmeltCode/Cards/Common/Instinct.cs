@@ -1,3 +1,4 @@
+using BaseLib.Extensions;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -29,12 +30,12 @@ public class Instinct() : OddmeltCard(1,
     {
         if (card != this) return;
         
-        await Cmd.Wait(0.25f);
+        await Cmd.Wait(0.25f.OrFast());
         await CommonActions.ApplySelf<InstinctPower>(this, DynamicVars.Strength.BaseValue);
     }
 
     protected override void OnUpgrade()
     {
-
+        DynamicVars.Strength.UpgradeValueBy(1);
     }
 }
