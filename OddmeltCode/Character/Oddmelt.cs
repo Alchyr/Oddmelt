@@ -1,8 +1,10 @@
 ﻿using BaseLib.Abstracts;
+using BaseLib.Utils;
 using Oddmelt.OddmeltCode.Extensions;
 using Godot;
 using MegaCrit.Sts2.Core.Entities.Characters;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Nodes.Combat;
 using Oddmelt.OddmeltCode.Cards.Basic;
 using Oddmelt.OddmeltCode.Relics;
 
@@ -44,6 +46,11 @@ public class Oddmelt : PlaceholderCharacterModel
         These are just some of the simplest assets, given some placeholders to differentiate your character with.
         You don't have to, but you're suggested to rename these images. */
     public override string CustomVisualPath => "res://Oddmelt/scenes/oddmelt.tscn";
+    /*public override NCreatureVisuals? CreateCustomVisuals()
+    {
+        return GodotUtils.CreatureVisualsFromImage("res://Oddmelt/images/character/placeholder.png");
+    }*/
+
     public override string CustomIconTexturePath => "character_icon_char_name.png".CharacterUiPath();
     public override string CustomCharacterSelectIconPath => "char_select_char_name.png".CharacterUiPath();
     public override string CustomCharacterSelectLockedIconPath => "char_select_char_name_locked.png".CharacterUiPath();

@@ -7,12 +7,13 @@ using Oddmelt.OddmeltCode.Stitch;
 
 namespace Oddmelt.OddmeltCode.Cards.Common;
 
-public class Wirecasting() : OddmeltCard(1, CardType.Attack, CardRarity.Common, TargetType.AllEnemies)
+public class Wirecasting : OddmeltCard
 {
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [OddmeltKeywords.Stitch];
-    protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new DamageVar(4, ValueProp.Move)
-        ];
+    public Wirecasting() : base(1, CardType.Attack, CardRarity.Common, TargetType.AllEnemies)
+    {
+        WithKeywords(OddmeltKeywords.Stitch);
+        WithDamage(4);
+    }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {

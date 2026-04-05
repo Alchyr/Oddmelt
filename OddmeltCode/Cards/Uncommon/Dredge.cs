@@ -5,10 +5,13 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace Oddmelt.OddmeltCode.Cards.Uncommon;
 
-public class Dredge() : OddmeltCard(0, CardType.Skill,
-    CardRarity.Uncommon, TargetType.Self)
+public class Dredge : OddmeltCard
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DissolveVar(6), new CardsVar(2)];
+    public Dredge() : base(0, CardType.Skill,
+        CardRarity.Uncommon, TargetType.Self)
+    {
+        WithVars(new DissolveVar(5), new CardsVar(2));
+    }
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
@@ -22,6 +25,6 @@ public class Dredge() : OddmeltCard(0, CardType.Skill,
 
     protected override void OnUpgrade()
     {
-        DynamicVars[DissolveVar.Key].UpgradeValueBy(-2);
+        DynamicVars.Cards.UpgradeValueBy(1);
     }
 }

@@ -8,12 +8,15 @@ using Oddmelt.OddmeltCode.Powers;
 
 namespace Oddmelt.OddmeltCode.Cards.Common;
 
-public class Outrage() : OddmeltCard(2,
-    CardType.Attack, CardRarity.Common,
-    TargetType.AnyEnemy)
+public class Struggle : OddmeltCard
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [ new DamageVar(12, ValueProp.Move), new PowerVar<Bind>(6) ];
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [ HoverTipFactory.FromPower<Bind>() ];
+    public Struggle() : base(2,
+        CardType.Attack, CardRarity.Common,
+        TargetType.AnyEnemy)
+    {
+        WithDamage(12);
+        WithPower<Bind>(6);
+    }
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,

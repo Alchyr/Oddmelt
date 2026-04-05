@@ -7,11 +7,14 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace Oddmelt.OddmeltCode.Cards.Rare;
 
-public class Reorganize() : OddmeltCard(0,
-    CardType.Skill, CardRarity.Rare,
-    TargetType.Self)
+public class Reorganize : OddmeltCard
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [ new CardsVar(3)];
+    public Reorganize() : base(0,
+        CardType.Skill, CardRarity.Rare,
+        TargetType.Self)
+    {
+        WithCards(3);
+    }
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,

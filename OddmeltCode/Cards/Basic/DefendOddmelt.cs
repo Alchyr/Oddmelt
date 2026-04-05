@@ -6,10 +6,13 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace Oddmelt.OddmeltCode.Cards.Basic;
 
-public class DefendOddmelt() : OddmeltCard(1, CardType.Skill, CardRarity.Basic, TargetType.Self)
+public class DefendOddmelt : OddmeltCard
 {
-    protected override HashSet<CardTag> CanonicalTags => [CardTag.Defend];
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(5, ValueProp.Move)];
+    public DefendOddmelt() : base(1, CardType.Skill, CardRarity.Basic, TargetType.Self)
+    {
+        WithBlock(5);
+        WithTags(CardTag.Defend);
+    }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {

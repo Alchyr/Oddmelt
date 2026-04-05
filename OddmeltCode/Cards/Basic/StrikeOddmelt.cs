@@ -5,10 +5,13 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace Oddmelt.OddmeltCode.Cards.Basic;
 
-public class StrikeOddmelt() : OddmeltCard(1, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy)
+public class StrikeOddmelt : OddmeltCard
 {
-    protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(6, ValueProp.Move)];
+    public StrikeOddmelt() : base(1, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy)
+    {
+        WithDamage(6);
+        WithTags(CardTag.Strike);
+    }
 
     protected override async Task OnPlay(MegaCrit.Sts2.Core.GameActions.Multiplayer.PlayerChoiceContext choiceContext, CardPlay play)
     {

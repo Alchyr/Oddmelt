@@ -7,13 +7,16 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace Oddmelt.OddmeltCode.Cards.Common;
 
-public class Repurpose() : OddmeltCard(0,
-    CardType.Skill, CardRarity.Common,
-    TargetType.Self)
+public class Repurpose : OddmeltCard
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [ new CardsVar(1) ];
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [ CardKeyword.Exhaust ];
-
+    public Repurpose() : base(0,
+        CardType.Skill, CardRarity.Common,
+        TargetType.Self)
+    {
+        WithVars(new CardsVar(1));
+        WithKeywords(CardKeyword.Exhaust);
+    }
+    
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
         CardPlay play)

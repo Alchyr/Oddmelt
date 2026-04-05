@@ -7,9 +7,13 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace Oddmelt.OddmeltCode.Cards.Common;
 
-public class Needlework() : OddmeltCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
+public class Needlework : OddmeltCard
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(9, ValueProp.Move), new PersistVar(1)];
+    public Needlework() : base(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
+    {
+        WithDamage(9);
+        WithVars(new PersistVar(1));
+    }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {

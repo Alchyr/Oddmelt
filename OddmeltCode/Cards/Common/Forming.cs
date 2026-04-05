@@ -7,12 +7,13 @@ using Oddmelt.OddmeltCode.Stitch;
 
 namespace Oddmelt.OddmeltCode.Cards.Common;
 
-public class Forming() : OddmeltCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
+public class Forming : OddmeltCard
 {
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [OddmeltKeywords.Stitch];
-    protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new BlockVar(4, ValueProp.Move),
-        ];
+    public Forming() : base(1, CardType.Skill, CardRarity.Common, TargetType.Self)
+    {
+        WithKeywords(OddmeltKeywords.Stitch);
+        WithBlock(4);
+    }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
@@ -22,6 +23,6 @@ public class Forming() : OddmeltCard(1, CardType.Skill, CardRarity.Common, Targe
 
     protected override void OnUpgrade()
     {
-        DynamicVars["Block"].UpgradeValueBy(2m);
+        DynamicVars.Block.UpgradeValueBy(2);
     }
 }

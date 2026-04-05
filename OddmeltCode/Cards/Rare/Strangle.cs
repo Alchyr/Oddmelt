@@ -7,12 +7,15 @@ using Oddmelt.OddmeltCode.Stitch;
 
 namespace Oddmelt.OddmeltCode.Cards.Rare;
 
-public class Strangle() : OddmeltCard(3,
-    CardType.Attack, CardRarity.Rare,
-    TargetType.AnyEnemy)
+public class Strangle : OddmeltCard
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(20, ValueProp.Move)];
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [OddmeltKeywords.Stitch];
+    public Strangle() : base(3,
+        CardType.Attack, CardRarity.Rare,
+        TargetType.AnyEnemy)
+    {
+        WithDamage(20);
+        WithKeywords(OddmeltKeywords.Stitch);
+    }
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,

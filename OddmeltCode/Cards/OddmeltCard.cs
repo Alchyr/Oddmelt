@@ -12,7 +12,7 @@ namespace Oddmelt.OddmeltCode.Cards;
 
 [Pool(typeof(OddmeltCardPool))]
 public abstract class OddmeltCard(int cost, CardType type, CardRarity rarity, TargetType target) :
-    CustomCardModel(cost, type, rarity, target)
+    ConstructedCardModel(cost, type, rarity, target)
 {
     //Image size:
     //Normal art: 1000x760 (Using 500x380 should also work, it will simply be scaled.)
@@ -49,8 +49,12 @@ public abstract class OddmeltCard(int cost, CardType type, CardRarity rarity, Ta
             return ResourceLoader.Exists(path) ? path : "beta/card.png".CardImagePath();
         }
     }
-
-
+    
+    protected void WithDissolve(int baseVal)
+    {
+        WithVars(new DissolveVar(baseVal));
+    }
+    
     public bool CanDissolve => DynamicVars.TryGetValue(DissolveVar.Key, out var dissolve) && Owner != null && Owner.Creature.Block >= dissolve.IntValue;
     public static async Task<bool> Dissolve(CardModel card)
     {

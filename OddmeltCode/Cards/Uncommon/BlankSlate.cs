@@ -1,3 +1,4 @@
+using BaseLib.Extensions;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -6,11 +7,14 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace Oddmelt.OddmeltCode.Cards.Uncommon;
 
-public class BlankSlate() : OddmeltCard(2, CardType.Skill,
-    CardRarity.Uncommon, TargetType.Self)
+public class BlankSlate : OddmeltCard
 {
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [ CardKeyword.Retain, CardKeyword.Exhaust ];
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(4, ValueProp.Move)];
+    public BlankSlate() : base(2, CardType.Skill,
+        CardRarity.Uncommon, TargetType.Self)
+    {
+        WithBlock(4);
+        WithKeywords(CardKeyword.Retain, CardKeyword.Exhaust);
+    }
 
     public override void AfterCreated()
     {

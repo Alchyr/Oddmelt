@@ -8,13 +8,12 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace Oddmelt.OddmeltCode.Cards.Common;
 
-public class ImpactPrep() : OddmeltCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
+public class ImpactPrep : OddmeltCard
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new BlockVar(7, ValueProp.Move),
-        new DissolveVar(4),
-        new BlockVar("Block2", 7, ValueProp.Move),
-        ];
+    public ImpactPrep() : base(1, CardType.Skill, CardRarity.Common, TargetType.Self)
+    {
+        WithVars(new BlockVar(7, ValueProp.Move), new DissolveVar(4), new BlockVar("Block2", 7, ValueProp.Move));
+    }
 
     protected override bool ShouldGlowGoldInternal => CanDissolve;
 

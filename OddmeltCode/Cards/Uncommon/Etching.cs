@@ -7,10 +7,14 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace Oddmelt.OddmeltCode.Cards.Uncommon;
 
-public class Etching() : OddmeltCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
+public class Etching : OddmeltCard
 {
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain];
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(3, ValueProp.Move), new PersistVar(1)];
+    public Etching() : base(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
+    {
+        WithKeywords(CardKeyword.Retain);
+        WithDamage(3);
+        WithVars(new PersistVar(1));
+    }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {

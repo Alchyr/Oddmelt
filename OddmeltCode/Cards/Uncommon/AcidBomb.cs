@@ -7,14 +7,16 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace Oddmelt.OddmeltCode.Cards.Uncommon;
 
-public class AcidBomb() : OddmeltCard(2,
-    CardType.Attack, CardRarity.Uncommon,
-    TargetType.AnyEnemy)
+public class AcidBomb : OddmeltCard
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars =>
-        [new DamageVar(10, ValueProp.Move), new PowerVar<VulnerablePower>(4)];
-
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
+    public AcidBomb() : base(2,
+        CardType.Attack, CardRarity.Uncommon,
+        TargetType.AnyEnemy)
+    {
+        WithDamage(10);
+        WithPower<VulnerablePower>(4);
+        WithKeywords(CardKeyword.Exhaust);
+    }
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,

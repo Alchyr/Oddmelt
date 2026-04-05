@@ -6,11 +6,14 @@ using Oddmelt.OddmeltCode.Stitch;
 
 namespace Oddmelt.OddmeltCode.Cards.Rare;
 
-public class Extension() : OddmeltCard(1,
-    CardType.Skill, CardRarity.Rare,
-    TargetType.Self)
+public class Extension : OddmeltCard
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1)];
+    public Extension() : base(1,
+        CardType.Skill, CardRarity.Rare,
+        TargetType.Self)
+    {
+        WithCards(1);
+    }
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,

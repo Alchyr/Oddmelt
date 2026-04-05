@@ -6,18 +6,19 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace Oddmelt.OddmeltCode.Cards.Rare;
 
-public class MassExpulsion() : OddmeltCard(1, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
+public class MassExpulsion : OddmeltCard
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new DamageVar(8, ValueProp.Move),
-        new DissolveVar(8),
-        new DynamicVar("DissolveCount", 2),
-        new CalculationBaseVar(1),
-        new CalculationExtraVar(1),
-        new CalculatedVar("Hits")
-            .WithMultiplier((card, target) => (decimal) Math.Pow(2, (double) Math.Min(Math.Floor(card.Owner.Creature.Block / card.DynamicVars[DissolveVar.Key].BaseValue),
-                card.DynamicVars["DissolveCount"].BaseValue)) - 1)
-    ];
+    public MassExpulsion() : base(1, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
+    {
+        WithDamage(8);
+        WithDissolve(8);
+        WithVar("DissolveCount", 2);
+        WithCalculatedVar("Hits", 1, 1,
+            (card, target) => (decimal)Math.Pow(2, (double)Math.Min(
+                Math.Floor(card.Owner.Creature.Block / card.DynamicVars[DissolveVar.Key].BaseValue),
+                card.DynamicVars["DissolveCount"].BaseValue)) - 1);
+    }
+
     protected override bool ShouldGlowGoldInternal => CanDissolve;
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)

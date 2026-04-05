@@ -7,9 +7,13 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace Oddmelt.OddmeltCode.Cards.Uncommon;
 
-public class Tearaway() : OddmeltCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
+public class Tearaway : OddmeltCard
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(9, ValueProp.Move), new DissolveVar(3)];
+    public Tearaway() : base(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
+    {
+        WithDamage(9);
+        WithDissolve(3);
+    }
 
     protected override bool ShouldGlowGoldInternal => CanDissolve;
 

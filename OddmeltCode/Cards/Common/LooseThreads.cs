@@ -5,11 +5,13 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace Oddmelt.OddmeltCode.Cards.Common;
 
-public class LooseThreads() : OddmeltCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
+public class LooseThreads : OddmeltCard
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(3)];
-
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [OddmeltKeywords.Woven];
+    public LooseThreads() : base(1, CardType.Skill, CardRarity.Common, TargetType.Self)
+    {
+        WithVars(new CardsVar(3));
+        WithKeywords(OddmeltKeywords.Woven);
+    }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {

@@ -11,12 +11,14 @@ using Oddmelt.OddmeltCode.Powers;
 
 namespace Oddmelt.OddmeltCode.Cards.Common;
 
-public class Instinct() : OddmeltCard(1,
-    CardType.Skill, CardRarity.Common,
-    TargetType.Self)
+public class Instinct : OddmeltCard
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<StrengthPower>(2)];
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<StrengthPower>()];
+    public Instinct() : base(1,
+        CardType.Skill, CardRarity.Common,
+        TargetType.Self)
+    {
+        WithPower<StrengthPower>(2);
+    }
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,

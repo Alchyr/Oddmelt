@@ -6,10 +6,13 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace Oddmelt.OddmeltCode.Cards.Token;
 
-public class Weave() : OddmeltCard(0, CardType.Skill, CardRarity.Token, TargetType.Self)
+public class Weave : OddmeltCard
 {
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [OddmeltKeywords.Woven];
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(3, ValueProp.Move)];
+    public Weave() : base(0, CardType.Skill, CardRarity.Token, TargetType.Self)
+    {
+        WithKeywords(OddmeltKeywords.Woven);
+        WithBlock(3);
+    }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
